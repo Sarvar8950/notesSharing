@@ -1,6 +1,7 @@
 const express = require("express")
 const bodyparser = require('body-parser')
 const cors = require('cors')
+const text = require('./schema')
 
 // Mongodb Connection
 connectToDB=require('./mongodb')
@@ -12,10 +13,16 @@ app.use(cors())
 app.use(bodyparser.json())
 
 
-app.post('/addData', (req,res) => {
+app.get('/', (req,res) => {
+    console.log("Get request")
+    res.status(200).send("get request is working")
+})
+app.post('/addData', async (req,res) => {
     const body = req.body
-    console.log(req,body)
-    res.status(200).send("data added        ")
+    console.log(body)
+    const data = await text.insertMany([body])
+    console.log(data)
+    res.status(200).send("data added", data)
 })
 
 app.listen(8000, () => {
