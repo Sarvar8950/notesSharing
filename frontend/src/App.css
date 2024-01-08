@@ -1,0 +1,29 @@
+textarea {
+    resize: none;
+}
+
+h1 {
+    text-align: center;
+    font-size: 38px;
+    padding: 20px 0;
+    color: #fff;
+}
+
+.inputField {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.inputField input {
+    padding: 4px 8px; 
+}
+
+.inputField button {
+    padding: 4px 8px;
+    background: green;
+    color: #fff;
+    margin-top: 10px;
+    border-radius: 8px
+}
